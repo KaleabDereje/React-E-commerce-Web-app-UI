@@ -269,3 +269,52 @@ ReactDOM.render(<Greeting />, document.getElementById('root'));
 	}
   
   export default App;
+=============================================
+	function App() {
+  
+	  //const title = 'Advanced React useState Hook';
+	  //const handleClick = () => {
+		//title = "Definetly changing kook's useState";
+	  /*
+		const [title, setTitle] = useState('Advanced React useState Hook');
+		const changeTitle = () => {
+		  if(title === 'Advanced React useState Hook'){
+			setTitle("Definetly changing kook's useState");
+		  }else {
+			setTitle('Advanced React useState Hook');
+		  }
+		};
+  
+	  return(
+		<>
+		<div>
+		  <h2>{title}</h2>
+		</div>
+		<div>
+		  <button type='button' onClick={changeTitle} color='Primary'>
+			Flex Title
+		  </button>
+		</div>
+		</>
+	  );
+	  */
+  
+		const {people, setPeople} = useState(data);
+		return (
+		  <>
+			{people.map((person) => {
+			  const {id, name} = person;
+			  return (
+				<div key={id}>
+				  <h2>{name}</h2>
+				</div>
+			  )
+			})}
+			<button onClick={() => setPeople([])}>
+			  Clear Items
+			</button>
+		  </>
+		);
+	}
+  
+  export default App;
