@@ -2,13 +2,13 @@
   // useState used to keep values between renders while re-render trigered
   //  
 
-import {useState} from 'react';
-import {data} from '../data'
+import React, {useState} from 'react';
+import {data} from '../data';
 
   function App() {
 
     //const title = 'Advanced React useState Hook';
-    //const handleClick = () => {
+     //const handleClick = () => {
       //title = "Definetly changing kook's useState";
     /*
       const [title, setTitle] = useState('Advanced React useState Hook');
@@ -33,23 +33,23 @@ import {data} from '../data'
       </>
     );
     */
-
-      const {people, setPeople} = useState(data);
-      return (
+      const [people, setPeople] = useState(data);
+        return (
         <>
-          {people.map((person) => {
-            const {id, name} = person;
+        {people.map((person) => {
+          const {id, name} = person;
             return (
               <div key={id}>
-                <h2>{name}</h2>
+                <h3>{name}</h3>
               </div>
-            )
-          })}
+            );
+          })}  
           <button onClick={() => setPeople([])}>
             Clear Items
           </button>
         </>
       );
-  }
+      
+  };
 
 export default App;
