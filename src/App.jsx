@@ -33,6 +33,7 @@ import {data} from '../data';
       </>
     );
     */
+   // useState with Array implementation
       const [people, setPeople] = useState(data);
 
         const removeItem = (id) => {
