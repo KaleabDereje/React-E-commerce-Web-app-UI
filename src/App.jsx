@@ -34,6 +34,13 @@ import {data} from '../data';
     );
     */
       const [people, setPeople] = useState(data);
+
+        const removeItem = (id) => {
+          setPeople(
+            people.filter((person) => person.id !== id)
+          );
+        };
+
         return (
         <>
         {people.map((person) => {
@@ -41,6 +48,7 @@ import {data} from '../data';
             return (
               <div key={id}>
                 <h3>{name}</h3>
+                <button onClick={() => removeItem(id)}>Remove Item</button>
               </div>
             );
           })}  
