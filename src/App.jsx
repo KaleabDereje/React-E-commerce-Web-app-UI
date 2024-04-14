@@ -3,7 +3,7 @@
   //  
 
 import React, {useState} from 'react';
-import {data} from '../data';
+//import {data} from '../data';
 
   function App() {
 
@@ -34,7 +34,7 @@ import {data} from '../data';
     );
     */
    // useState with Array implementation
-      const [people, setPeople] = useState(data);
+      /* const [people, setPeople] = useState(data);
 
         const removeItem = (id) => {
           setPeople(
@@ -58,6 +58,60 @@ import {data} from '../data';
           </button>
         </>
       );
+      */
+     //useState implementation with Object
+    
+     //#####################################################################
+     /* const [people, setPeople] = useState(data);
+
+        const removeItem = (id) => {
+          setPeople(
+            people.filter((person) => person.id !== id)
+          );
+        };
+
+        return (
+        <>
+        {people.map((person) => {
+          const {id, name} = person;
+            return (
+              <div key={id}>
+                <h3>{name}</h3>
+                <button onClick={() => removeItem(id)}>Remove Item</button>
+              </div>
+            );
+          })}  
+          <button onClick={() => setPeople([])}>
+            Clear Items
+          </button>
+        </>
+      );
+      */
+     /* const [people, setPeople] = useState(data);
+
+        const removeItem = (id) => {
+          setPeople(
+            people.filter((person) => person.id !== id)
+          );
+        };
+
+        return (
+        <>
+        {people.map((person) => {
+          const {id, name} = person;
+            return (
+              <div key={id}>
+                <h3>{name}</h3>
+                <button onClick={() => removeItem(id)}>Remove Item</button>
+              </div>
+            );
+          })}  
+          <button onClick={() => setPeople([])}>
+            Clear Items
+          </button>
+        </>
+      );
+      */
       
   };
 
