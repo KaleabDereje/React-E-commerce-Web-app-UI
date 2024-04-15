@@ -59,8 +59,54 @@ import React, {useState} from 'react';
         </>
       );
       */
+
      //useState implementation with Object
-    
+     /*
+     const [person, setPerson] = useState({
+      name: 'kook',
+      age: 24,
+      message: 'hello baby'
+     });
+
+     const handleMessage = () => {
+      setPerson({...person,message: 'hello kal'});
+     };
+
+     return (
+      <>
+        <h2>{person.name}</h2>
+        <h2>{person.age}</h2>
+        <h2>{person.message}</h2>
+        <button onClick={handleMessage}>Change Message</button>
+      </>
+     );
+    */
+
+     // useState counter example
+      const [value, setValue] = useState(0);
+
+      const increaseHandler = () => {
+        setValue((value) => value +=1);
+      };
+      const decreaseHandler = () => {
+        setValue((value) => value -=1);
+      };
+      const resetHandler = () => {
+        setValue((value) => value = 0);
+      };
+
+      return (
+        <>
+          <section style={{ margin: '5px 0'}}>
+            <h2>regular counter</h2>
+            <h1>{value}</h1>
+          </section>
+          <button onClick={increaseHandler}>Increase</button>
+          <button onClick={decreaseHandler}>Decrease</button>
+          <button onClick={resetHandler}>Reset</button>
+        </>
+      );
+
   };
 
 export default App;
