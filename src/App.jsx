@@ -91,9 +91,7 @@ import React, {useState} from 'react';
       const decreaseHandler = () => {
         setValue((value) => value -=1);
       };
-      const resetHandler = () => {
-        setValue((value) => value = 0);
-      };
+      const resetHandler = () =>  setValue(0);
 
       return (
         <>
