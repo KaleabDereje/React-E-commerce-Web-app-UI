@@ -107,3 +107,31 @@ import React, {useState} from 'react';
   };
 
 export default App;
+// $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+*/
+
+     // useState counter example
+      const [value, setValue] = useState(0);
+
+      const increaseHandler = () => {
+        setValue((value) => value +=1);
+      };
+      const decreaseHandler = () => {
+        setValue((value) => value -=1);
+      };
+      const resetHandler = () =>  setValue(0);
+
+      return (
+        <>
+          <section style={{ margin: '5px 0'}}>
+            <h2>regular counter</h2>
+            <h1>{value}</h1>
+          </section>
+          <button onClick={increaseHandler}>Increase</button>
+          <button onClick={decreaseHandler}>Decrease</button>
+          <button onClick={resetHandler}>Reset</button>
+        </>
+      );
+  };
+
+export default App;
