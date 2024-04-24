@@ -2,7 +2,7 @@
   // useState used to keep values between renders while re-render trigered
   //  
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 //import {data} from '../data';
 
   function App() {
@@ -82,6 +82,7 @@ import React, {useState} from 'react';
      );
     */
 
+      /*
      // useState counter example
       const [value, setValue] = useState(0);
 
@@ -116,6 +117,24 @@ import React, {useState} from 'react';
           <button onClick={complexIncrease}>Increase Later</button>
         </>
       );
+      */
+
+        // UseEffect Basics
+        const [value, setValue] = useState(0);
+        useEffect(()=>{
+          if (value > 3) {
+          document.title = `new doc(${value})`;
+          }
+        },[value]);
+        
+        return (
+          <>
+            <section>
+              <h2>{value}</h2>
+            </section>
+            <button onClick={()=>setValue(value + 1)}>Inccrease</button>
+          </>
+        );
   };
 
 export default App;
