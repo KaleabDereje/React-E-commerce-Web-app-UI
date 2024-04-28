@@ -374,3 +374,72 @@ const [size, setSize] = useState(window.innerWidth);
           </section>
           </>
         );
+const [size, setSize] = useState(window.innerWidth);
+        const checkSize = () => {
+            setSize(window.innerWidth);
+        };
+
+        useEffect(() => {
+          window.addEventListener('resize',checkSize);
+          return () => {
+            //for every rerender the useEffect will run an checkSize will be invoked
+            //results to a memory leak that ecah time the eventListener added as the system get bigger and side EventListeners added
+            //we need clean-up function 
+            window.removeEventListener('resize',checkSize);
+          }
+        }); 
+
+        return (
+          <>
+          <section>
+            <h1>Window</h1>
+            <h2>{size} PX</h2>
+          </section>
+          </>
+        );
+const [size, setSize] = useState(window.innerWidth);
+        const checkSize = () => {
+            setSize(window.innerWidth);
+        };
+
+        useEffect(() => {
+          window.addEventListener('resize',checkSize);
+          return () => {
+            //for every rerender the useEffect will run an checkSize will be invoked
+            //results to a memory leak that ecah time the eventListener added as the system get bigger and side EventListeners added
+            //we need clean-up function 
+            window.removeEventListener('resize',checkSize);
+          }
+        }); 
+
+        return (
+          <>
+          <section>
+            <h1>Window</h1>
+            <h2>{size} PX</h2>
+          </section>
+          </>
+        );
+const [size, setSize] = useState(window.innerWidth);
+        const checkSize = () => {
+            setSize(window.innerWidth);
+        };
+
+        useEffect(() => {
+          window.addEventListener('resize',checkSize);
+          return () => {
+            //for every rerender the useEffect will run an checkSize will be invoked
+            //results to a memory leak that ecah time the eventListener added as the system get bigger and side EventListeners added
+            //we need clean-up function 
+            window.removeEventListener('resize',checkSize);
+          }
+        }); 
+
+        return (
+          <>
+          <section>
+            <h1>Window</h1>
+            <h2>{size} PX</h2>
+          </section>
+          </>
+        );
