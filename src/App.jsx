@@ -175,15 +175,27 @@ import React, {useState, useEffect} from 'react';
 
         useEffect(() => {
           // it's not possible to make a useEffect function async and await
+          //dependency array added to only run on onrtime rerender
           getUsers();
         }, []);
 
         return (
           <>
           <h1>GitHub Users</h1>
-          <section>
+          <section> 
             <ul>
-              {}
+              {users.map((users) => {
+                const {id, login, avatar_url, html_url} = users;
+                return (
+                  <li key={id}>
+                    <img src={avatar_url} alt={login} />
+                    <div>
+                      <h4>{login}</h4>
+                      <a href={html_url}>Profile</a>
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </section>
           </>
