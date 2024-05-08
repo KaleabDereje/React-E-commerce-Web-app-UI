@@ -136,11 +136,10 @@ import React, {useState, useEffect} from 'react';
             <button onClick={()=>setValue(value + 1)}>Inccrease</button>
           </>
         );
-        */
-
+        
         //useEffect cleanup
         const [size, setSize] = useState(window.innerWidth);
-        const checkSize = () => {
+         const checkSize = () => {
             setSize(window.innerWidth);
         };
 
@@ -162,7 +161,34 @@ import React, {useState, useEffect} from 'react';
           </section>
           </>
         );
-   
+        */
+
+        //additional useState and useEffect implementation
+        const url = 'https://api.github.com/users';
+        const [users, setUsers] = useState([]);
+
+        const getUsers = async() => {
+          const response = await fetch(url);
+          const users = await response.json();
+          setUsers(users);
+        };
+
+        useEffect(() => {
+          // it's not possible to make a useEffect function async and await
+          getUsers();
+        }, []);
+
+        return (
+          <>
+          <h1>GitHub Users</h1>
+          <section>
+            <ul>
+              {}
+            </ul>
+          </section>
+          </>
+        );
+
   };
 
 export default App;
