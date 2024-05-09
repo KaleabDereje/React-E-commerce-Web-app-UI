@@ -161,7 +161,7 @@ import React, {useState, useEffect} from 'react';
           </section>
           </>
         );
-        */
+        
 
         //additional useState and useEffect implementation
         const url = 'https://api.github.com/users';
@@ -200,6 +200,41 @@ import React, {useState, useEffect} from 'react';
           </section>
           </>
         );
+      */
+
+        // conditional rendering implementation
+        const url = 'https://api.github.com/users/QuincyLarson';
+        const [isLoading, setIsLoading] = useState(true);
+        const [isError, setIsError] = useState(false);
+        const [user, setUser] = useState('Default User');
+
+        useEffect(() => {
+          fetch(url)
+          .then((resp) => resp.json())
+          .then((user) => {
+            const {login} = user;
+            setUser(login);
+            setIsLoading(false);
+          })
+          .catch((error) => console.log(error))
+        }, []);
+
+        if (isLoading) {
+          return (
+            <h1>Loading...</h1>
+          );
+        }
+        
+        if(isError) {
+          return (
+            <h1>Error</h1>
+          );
+        }
+
+          return (
+            <h1>{user}</h1>
+          );
+
 
   };
 
