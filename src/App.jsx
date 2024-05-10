@@ -249,6 +249,7 @@ import React, {useState, useEffect} from 'react';
   };
 
 export default App;
+/*
 //###################################
 // conditional rendering implementation
 const url = 'https://api.github.com/users/QuincyLarsons';
@@ -290,7 +291,6 @@ if(isError) {
   return (
     <h1>{user}</h1>
   );
-
   // conditional rendering implementation
   const url = 'https://api.github.com/users/QuincyLarsons';
   const [isLoading, setIsLoading] = useState(true);
@@ -331,9 +331,10 @@ if(isError) {
     return (
       <h1>{user}</h1>
     );
-  */
+  
  
     //short-circuit implementation
 
 
   //short-circuit implementation
+*/
