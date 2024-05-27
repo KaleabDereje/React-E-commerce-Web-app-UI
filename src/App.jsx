@@ -21,7 +21,7 @@ import React, {useState, useEffect} from 'react';
       };
 
     return(
-      <>
+      <div></div>
       <div>
         <h2>{title}</h2>
       </div>
@@ -43,7 +43,7 @@ import React, {useState, useEffect} from 'react';
         };
 
         return (
-        <>
+        <div></div>
         {people.map((person) => {
           const {id, name} = person;
             return (
@@ -73,7 +73,7 @@ import React, {useState, useEffect} from 'react';
      };
 
      return (
-      <>
+      <div></div>
         <h2>{person.name}</h2>
         <h2>{person.age}</h2>
         <h2>{person.message}</h2>
@@ -101,7 +101,7 @@ import React, {useState, useEffect} from 'react';
       };
 
       return (
-        <>
+        <div></div>
           <section style={{ margin: '5px 0'}}>
             <h2>regular counter</h2>
             <h1>{value}</h1>
@@ -129,7 +129,7 @@ import React, {useState, useEffect} from 'react';
         },[value]);
         
         return (
-          <>
+          <div></div>
             <section>
               <h2>{value}</h2>
             </section>
@@ -154,7 +154,7 @@ import React, {useState, useEffect} from 'react';
         }); 
 
         return (
-          <>
+          <div></div>
           <section>
             <h1>Window</h1>
             <h2>{size} PX</h2>
@@ -180,7 +180,7 @@ import React, {useState, useEffect} from 'react';
         }, []);
 
         return (
-          <>
+          <div></div>
           <h1>GitHub Users</h1>
           <section> 
             <ul>
@@ -243,8 +243,33 @@ import React, {useState, useEffect} from 'react';
           );
         */
        
-          //short-circuit implementation
+          //short-circuit implementation  
+          // short-circuit evaluation
+          //ternary operator
+          const [text, setText] = useState('');
+          const firstValue = text || 'hello world';
+          const secondValue = text && 'hello world';
+          const [isError, setIsError] = useState(false);
 
+          return (
+            <div style={{align:'center',marginLeft:'15%'}}>
+            {/* <h1>{firstValue}</h1>
+            <h1>value: {secondValue}</h1>
+          */}
+
+          <h1>{text || 'hey kook'}</h1>
+
+          {/* making daynamic the switch evaluation*/}
+          <button style={{color:'white',border:'10px',backgroundColor:'lightGreen',margin:'10px',}} onClick={()=> setIsError(!isError)}>Toggle Error</button>
+          {/*isError && <h1>Mr.Bug</h1>
+            implementing using ternary operator
+          */} 
+          {isError ? <h1>This is Mr.Bug</h1> : 
+          <div>
+            <h1>Mr.Bug Missed :)</h1>
+            </div>}
+            </div>
+          );
 
   };
 
