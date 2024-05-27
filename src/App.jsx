@@ -241,8 +241,9 @@ import React, {useState, useEffect} from 'react';
           return (
             <h1>{user}</h1>
           );
-        */
+        
        
+          // we need to use short-circuit or ternary operator bcoz if statesment doesnt return value
           //short-circuit implementation  
           // short-circuit evaluation
           //ternary operator
@@ -253,25 +254,67 @@ import React, {useState, useEffect} from 'react';
 
           return (
             <div style={{align:'center',marginLeft:'15%'}}>
-            {/* <h1>{firstValue}</h1>
+             <h1>{firstValue}</h1>
             <h1>value: {secondValue}</h1>
-          */}
+          
 
           <h1>{text || 'hey kook'}</h1>
 
-          {/* making daynamic the switch evaluation*/}
+          // making daynamic the switch evaluation
           <button style={{color:'white',border:'10px',backgroundColor:'lightGreen',margin:'10px',}} onClick={()=> setIsError(!isError)}>Toggle Error</button>
-          {/*isError && <h1>Mr.Bug</h1>
-            implementing using ternary operator
-          */} 
+          {isError && <h1>Mr.Bug</h1>
+            // implementing using ternary operator
+            } 
           {isError ? <h1>This is Mr.Bug</h1> : 
           <div>
             <h1>Mr.Bug Missed :)</h1>
             </div>}
-            </div>
+          </div>
           );
+      
+            // setting up clean-up function while implementing short circuit
+            // show/hide 
+            
+            const [show, setShow] = useState(false);
+
+            return(
+              <div style={{alignment:'center', marginLeft:'13%',}}>
+              <button style={{boder:'10px',borderColor:'grey', backgroundColor:'lightGreen'}} onClick={()=>setShow(!show)}>
+                show/hide
+                </button>
+                {show && <Item />}
+              </div>
+
+            );
+            const Item = () => {
+
+              const [size, setSize] = useState(window.innerWidth);
+          
+              const checkSize = () => {
+                setSize(window.innerWidth);
+              };
+              // to avoid the memory lak bside the useEffect dependency empty array use clean-function
+              useEffect(()=>{
+                window.addEventListener('resize',checkSize);
+                return () => {
+                  window.removeEventListener('resize', checkSize);
+                };
+              }, []);
+          
+                return(
+                  <>
+                  <h1>Window</h1>
+                  <h1>Size : {size}</h1>
+                  </>
+                );
+            
+                }
+                */
+
+                // basic react forms
+            
 
   };
-
+  
 export default App;
 
