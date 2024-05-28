@@ -322,7 +322,7 @@ import React, {useState, useEffect} from 'react';
                 return (
                   <>
                     <article style={{align:'center',marginLeft:'25%'}}>
-                      <form className="form" onSubmit={handleSubmit}>
+                      <form className="form">
                         <div>
                           <label htmlFor="firstName">Name</label>
                           <input type="text" id="firstName" name="firstName" />
@@ -331,9 +331,7 @@ import React, {useState, useEffect} from 'react';
                           <label htmlFor="email">Email</label>
                           <input type="text" id="email" name="emal"/>
                         </div>
-                        <div>
-                          <button type="submit">Add Person</button>
-                        </div>
+                          <button type="submit" onClick={handleSubmit}>Add Person</button>
                       </form>
                     </article>
                   </>
