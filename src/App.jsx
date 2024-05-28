@@ -312,7 +312,26 @@ import React, {useState, useEffect} from 'react';
                 */
 
                 // basic react forms
-            
+                // controlled inputs    
+                return (
+                  <>
+                    <article style={{align:'center',marginLeft:'25%'}}>
+                      <form className="form">
+                        <div>
+                          <label htmlFor="firstName">Name</label>
+                          <input type="text" id="firstName" name="firstName" />
+                        </div>
+                        <div>
+                          <label htmlFor="email">Email</label>
+                          <input type="text" id="email" name="emal"/>
+                        </div>
+                        <div>
+                          <button type="submit">Add Person</button>
+                        </div>
+                      </form>
+                    </article>
+                  </>
+                );
 
   };
   
