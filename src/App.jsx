@@ -313,10 +313,16 @@ import React, {useState, useEffect} from 'react';
 
                 // basic react forms
                 // controlled inputs    
+                const handleSubmit = (e) => {
+                  e.preventDefault();
+                  console.log('hey baby');
+                };
+
+
                 return (
                   <>
                     <article style={{align:'center',marginLeft:'25%'}}>
-                      <form className="form">
+                      <form className="form" onSubmit={handleSubmit}>
                         <div>
                           <label htmlFor="firstName">Name</label>
                           <input type="text" id="firstName" name="firstName" />
