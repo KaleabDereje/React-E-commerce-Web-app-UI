@@ -312,14 +312,15 @@ import React, {useState, useEffect} from 'react';
                 */
 
                 // basic react forms
-                // controlled inputs    
+                // controlled inputs  
+                // using useState  
 
                 const [firstName, setFirstName] = useState('');
                 const [email, setEmail] = useState('');
 
                 const handleSubmit = (e) => {
                   e.preventDefault();
-                  console.log('hey baby');
+                  console.log(firstName, email);
                 };
 
 
