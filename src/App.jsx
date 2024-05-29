@@ -313,6 +313,10 @@ import React, {useState, useEffect} from 'react';
 
                 // basic react forms
                 // controlled inputs    
+
+                const [firstName, setFirstName] = useState('');
+                const [email, setEmail] = useState('');
+
                 const handleSubmit = (e) => {
                   e.preventDefault();
                   console.log('hey baby');
@@ -325,19 +329,19 @@ import React, {useState, useEffect} from 'react';
                       <form className="form">
                         <div>
                           <label htmlFor="firstName">Name</label>
-                          <input type="text" id="firstName" name="firstName" />
+                          <input type="text" id="firstName" name="firstName" value={firstName}  onChange={(v)=>{setFirstName(v.target.value)}}/>
                         </div>
                         <div>
                           <label htmlFor="email">Email</label>
-                          <input type="text" id="email" name="emal"/>
-                        </div>
+                          <input type="text" id="email" name="emal" value={email} onChange={(v)=>{setEmail(v.target.value)}}/>
+                        </div >
                           <button type="submit" onClick={handleSubmit}>Add Person</button>
                       </form>
                     </article>
                   </>
                 );
 
-  };
+};
   
 export default App;
 
