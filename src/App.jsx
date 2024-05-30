@@ -379,4 +379,37 @@ export default App;
                           <button type="submit" onClick={handleSubmit}>Add Person</button>
                       </form>
                     </article>
-        
+       
+     
+                }
+                */
+
+                // basic react forms
+                // controlled inputs  
+                // using useState  
+
+                const [firstName, setFirstName] = useState('');
+                const [email, setEmail] = useState('');
+
+                const handleSubmit = (e) => {
+                  e.preventDefault();
+                  console.log(firstName, email);
+                };
+
+
+                return (
+                  <>
+                    <article style={{align:'center',marginLeft:'25%'}}>
+                      <form className="form">
+                        <div>
+                          <label htmlFor="firstName">Name</label>
+                          <input type="text" id="firstName" name="firstName" value={firstName}  onChange={(v)=>{setFirstName(v.target.value)}}/>
+                        </div>
+                        <div>
+                          <label htmlFor="email">Email</label>
+                          <input type="text" id="email" name="emal" value={email} onChange={(v)=>{setEmail(v.target.value)}}/>
+                        </div >
+                          <button type="submit" onClick={handleSubmit}>Add Person</button>
+                      </form>
+                    </article>
+         
