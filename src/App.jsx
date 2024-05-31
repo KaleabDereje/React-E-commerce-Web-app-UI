@@ -318,16 +318,31 @@ import React, {useState, useEffect} from 'react';
                 const [firstName, setFirstName] = useState('');
                 const [email, setEmail] = useState('');
 
+                //list-out the input values 
+
+                const[people, setPeople] = useState([]);
+
                 const handleSubmit = (e) => {
                   e.preventDefault();
-                  console.log(firstName, email);
+
+                  if (firstName && email) {
+                    const person = {firstName: firstName, email: email};
+                    setPeople((people)=>{
+                      return ( [...people, person] );
+                    });
+                    setFirstName('');
+                    setEmail('');
+                  }
+                  else {
+                    console.log("fill the form");
+                  }
                 };
 
 
                 return (
                   <>
                     <article style={{align:'center',marginLeft:'25%'}}>
-                      <form className="form">
+                      <form className="form" onSubmit={handleSubmit}>
                         <div>
                           <label htmlFor="firstName">Name</label>
                           <input type="text" id="firstName" name="firstName" value={firstName}  onChange={(v)=>{setFirstName(v.target.value)}}/>
@@ -336,8 +351,11 @@ import React, {useState, useEffect} from 'react';
                           <label htmlFor="email">Email</label>
                           <input type="text" id="email" name="emal" value={email} onChange={(v)=>{setEmail(v.target.value)}}/>
                         </div >
-                          <button type="submit" onClick={handleSubmit}>Add Person</button>
+                          <button type="submit">Add Person</button>
                       </form>
+                    </article>
+                    <article atyle={{align:'center', marginLeft:'25%'}}>
+
                     </article>
                   </>
                 );
@@ -345,104 +363,3 @@ import React, {useState, useEffect} from 'react';
 };
   
 export default App;
-
-//############################################
-     
-                }
-                */
-
-                // basic react forms
-                // controlled inputs  
-                // using useState  
-
-                const [firstName, setFirstName] = useState('');
-                const [email, setEmail] = useState('');
-
-                const handleSubmit = (e) => {
-                  e.preventDefault();
-                  console.log(firstName, email);
-                };
-
-
-                return (
-                  <>
-                    <article style={{align:'center',marginLeft:'25%'}}>
-                      <form className="form">
-                        <div>
-                          <label htmlFor="firstName">Name</label>
-                          <input type="text" id="firstName" name="firstName" value={firstName}  onChange={(v)=>{setFirstName(v.target.value)}}/>
-                        </div>
-                        <div>
-                          <label htmlFor="email">Email</label>
-                          <input type="text" id="email" name="emal" value={email} onChange={(v)=>{setEmail(v.target.value)}}/>
-                        </div >
-                          <button type="submit" onClick={handleSubmit}>Add Person</button>
-                      </form>
-                    </article>
-       
-     
-                }
-                */
-
-                // basic react forms
-                // controlled inputs  
-                // using useState  
-
-                const [firstName, setFirstName] = useState('');
-                const [email, setEmail] = useState('');
-
-                const handleSubmit = (e) => {
-                  e.preventDefault();
-                  console.log(firstName, email);
-                };
-
-
-                return (
-                  <>
-                    <article style={{align:'center',marginLeft:'25%'}}>
-                      <form className="form">
-                        <div>
-                          <label htmlFor="firstName">Name</label>
-                          <input type="text" id="firstName" name="firstName" value={firstName}  onChange={(v)=>{setFirstName(v.target.value)}}/>
-                        </div>
-                        <div>
-                          <label htmlFor="email">Email</label>
-                          <input type="text" id="email" name="emal" value={email} onChange={(v)=>{setEmail(v.target.value)}}/>
-                        </div >
-                          <button type="submit" onClick={handleSubmit}>Add Person</button>
-                      </form>
-                    </article>
- 
-     
-                }
-                */
-
-                // basic react forms
-                // controlled inputs  
-                // using useState  
-
-                const [firstName, setFirstName] = useState('');
-                const [email, setEmail] = useState('');
-
-                const handleSubmit = (e) => {
-                  e.preventDefault();
-                  console.log(firstName, email);
-                };
-
-
-                return (
-                  <>
-                    <article style={{align:'center',marginLeft:'25%'}}>
-                      <form className="form">
-                        <div>
-                          <label htmlFor="firstName">Name</label>
-                          <input type="text" id="firstName" name="firstName" value={firstName}  onChange={(v)=>{setFirstName(v.target.value)}}/>
-                        </div>
-                        <div>
-                          <label htmlFor="email">Email</label>
-                          <input type="text" id="email" name="emal" value={email} onChange={(v)=>{setEmail(v.target.value)}}/>
-                        </div >
-                          <button type="submit" onClick={handleSubmit}>Add Person</button>
-                      </form>
-                    </article>
-                
