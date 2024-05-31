@@ -309,7 +309,7 @@ import React, {useState, useEffect} from 'react';
                 );
             
                 }
-                */
+                
 
                 // basic react forms
                 // controlled inputs  
@@ -371,6 +371,60 @@ import React, {useState, useEffect} from 'react';
                     </article>
                   </>
                 );
+                */
+
+               // react-form with multiple-inputs and single change-handler
+                        const [firstName, setFirstName] = useState('');
+                        const [email, setEmail] = useState('');
+
+                        const [people, setPeople] = useState([]);
+
+                        const handleSubmit = (e) => {
+                          e.preventDefault();
+                          
+                          if (firstName && email) {
+                            const person = {id: new Date().getTime().toString(), fname: firstName, myEmail: email };
+                            setPeople((people)=>{
+                              return( [...people, person] );
+                            });
+                            setFirstName('');
+                            setEmail('');
+                          }
+                          else {
+                            console.log("fill every form input");
+                          }
+
+                        };
+
+                        return (
+                          <>
+                            <form onSubmit={handleSubmit}>
+                              <article style={{body:'center', marginLeft:'25%'}}>
+                                <div>
+                                  <label>Name</label>
+                                  <input type='text' htmlFor='firsName' id='fname' name='firstName'  value={firstName} onChange={(event)=>{setFirstName(event.target.value)}} />
+                                </div>
+                                <div>
+                                  <label>Email</label>
+                                  <input type='email' htmlFor='email' id='email' name='email' value={email} onChange={(event)=>{setEmail(event.target.value)}} />
+                                </div>
+                                <div>
+                                  <button type='submit' style={{margin:'10px', float:'right'}}> Add Person</button>
+                                </div>
+                              </article>
+                                {people.map((person)=>{
+                                  const {id, firstName, email} = person;
+
+                                  return (
+                                    <div key={id}>
+                                      <h1>{firstName}</h1>
+                                      <p>{email}</p>
+                                    </div>
+                                  );
+                                })}
+                            </form>
+                          </>
+                        );
 
 };
   
