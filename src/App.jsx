@@ -326,7 +326,7 @@ import React, {useState, useEffect} from 'react';
                   e.preventDefault();
 
                   if (firstName && email) {
-                    const person = {firstName: firstName, email: email};
+                    const person = {id: new Date().getTime.toString(), firstName: firstName, email: email};
                     setPeople((people)=>{
                       return ( [...people, person] );
                     });
@@ -353,9 +353,21 @@ import React, {useState, useEffect} from 'react';
                         </div >
                           <button type="submit">Add Person</button>
                       </form>
-                    </article>
-                    <article atyle={{align:'center', marginLeft:'25%'}}>
-
+                        {people.map((person)=>{
+                            const {id, firstName, email} = person;
+                            return (
+                              <div key={id}>
+                                <div>
+                                <label>Name</label>
+                                <input  value={firstName}/>
+                                </div>
+                              <div>
+                                <label>Email</label>
+                                <input value={email}/>
+                              </div>
+                              </div>
+                            );
+                        })}
                     </article>
                   </>
                 );
