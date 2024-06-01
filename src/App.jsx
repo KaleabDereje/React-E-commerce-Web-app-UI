@@ -413,12 +413,12 @@ import React, {useState, useEffect} from 'react';
                                 </div>
                               </article>
                                 {people.map((person)=>{
-                                  const {id, firstName, email} = person;
+                                  const {id, fname, myEmail} = person;
 
                                   return (
                                     <div key={id}>
-                                      <h1>{firstName}</h1>
-                                      <p>{email}</p>
+                                      <h1>{fname}</h1>
+                                      <p>{myEmail}</p>
                                     </div>
                                   );
                                 })}
