@@ -416,9 +416,10 @@ import React, {useState, useEffect} from 'react';
                                   const {id, fname, myEmail} = person;
 
                                   return (
-                                    <div key={id}>
-                                      <h1>{fname}</h1>
-                                      <p>{myEmail}</p>
+                                    <div key={id} className='row md-3' style={{marginLeft:'25%' ,marginTop:'10px'}}>
+                                      <input className='col auto' type='text' value={fname} disabled/>
+                                      <input  className='col auto' type='text' value={myEmail} disabled />
+                                      <hr/>
                                     </div>
                                   );
                                 })}
