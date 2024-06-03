@@ -374,53 +374,61 @@ import React, {useState, useEffect} from 'react';
                 */
 
                // react-form with multiple-inputs and single change-handler
-                        const [firstName, setFirstName] = useState('');
-                        const [email, setEmail] = useState('');
-
+               //with a dynamic single input onChange handler
+                        // const [firstName, setFirstName] = useState('');
+                        // const [email, setEmail] = useState('');
+                        const [person, setPerson] = useState([{ firstName: '', email: '', age: '', }]);
                         const [people, setPeople] = useState([]);
+
+                        const handlePerson = (e) => {
+                          const name = e.target.name;
+                          const value = e.target.value;
+                          setPerson({...person, [name]: value});
+
+                        };
 
                         const handleSubmit = (e) => {
                           e.preventDefault();
-                          
-                          if (firstName && email) {
-                            const person = {id: new Date().getTime().toString(), fname: firstName, myEmail: email };
-                            setPeople((people)=>{
-                              return( [...people, person] );
-                            });
-                            setFirstName('');
-                            setEmail('');
-                          }
-                          else {
-                            console.log("fill every form input");
+                          if (person.firstName && person.email && person.age){
+                            const newPerson = {...person, id: new Date().getTime().toString() };
+                            setPeople([...people, newPerson]);
+                            setPerson({firstName:'', email:'', age:''});
                           }
 
                         };
 
                         return (
                           <>
-                            <form onSubmit={handleSubmit}>
+                            <form >
                               <article style={{body:'center', marginLeft:'25%'}}>
                                 <div>
                                   <label>Name</label>
-                                  <input type='text' htmlFor='firsName' id='fname' name='firstName'  value={firstName} onChange={(event)=>{setFirstName(event.target.value)}} />
+                                  <input type='text' htmlFor='firsName' id='fname' name='firstName'  value={person.firstName} onChange={handlePerson} />
                                 </div>
                                 <div>
                                   <label>Email</label>
-                                  <input type='email' htmlFor='email' id='email' name='email' value={email} onChange={(event)=>{setEmail(event.target.value)}} />
+                                  <input type='email' htmlFor='email' id='email' name='email' value={person.email} onChange={handlePerson} />
                                 </div>
                                 <div>
-                                  <button type='submit' style={{margin:'10px', float:'right'}}> Add Person</button>
+                                  <label>Age</label>
+                                  <input type='number' htmlFor='age' id='age' name='age' value={person.age} onChange={handlePerson} />
+                                </div>
+                                <div>
+                                  <button type='submit' style={{margin:'10px', float:'right'}} onClick={handleSubmit}> Add Person</button>
                                 </div>
                               </article>
                                 {people.map((person)=>{
-                                  const {id, fname, myEmail} = person;
+                                  const {id, firstName, email, age} = person;
 
                                   return (
-                                    <div key={id} className='row md-3' style={{marginLeft:'25%' ,marginTop:'10px'}}>
-                                      <input className='col auto' type='text' value={fname} disabled/>
-                                      <input  className='col auto' type='text' value={myEmail} disabled />
+                                    <article className='row md-3' style={{marginLeft:'25%'}}>
+                                    <div key={id} >
+                                      <input className='col auto' type='text' value={firstName} disabled/>
+                                      <input  className='col auto' type='text' value={email} disabled />
+                                      <input className='col auto' type='number' value={age} disabled />
                                       <hr/>
                                     </div>
+                                    </article>
                                   );
                                 })}
                             </form>
