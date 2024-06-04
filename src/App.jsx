@@ -434,30 +434,86 @@ import React, {useState, useEffect, useRef} from 'react';
                             </form>
                           </>
                         );
-                        */
 
-                       // useRef is a lot like useState
+
+                       // useRef is a lot like useState hook
                        // it preserves a value
-                       // doesn't re-render or deosnt need a render dependency (useEffect dependency)
+                       // doesn't triger re-render and doesn't need a dependency array while using with useEffect
                        // target the DOM node/element
 
                        const refContainer = useRef(null);
 
                        const handleSubmit = (e) => {
                         e.preventDefault();
-                        console.log(refContainer.current.id);
+                        console.log(refContainer.current.value);
 
                        };
+
+                       useEffect(()=>{
+                        console.log(refContainer.current);
+                        refContainer.current.focus();
+                       });
 
                        return (
                         <>
                           <form style={{marginLeft:"25%"}} onSubmit={handleSubmit}>
                             <input type='text' ref={refContainer} name='firstName' id='fname'/>
-                            <button type='submit'>Submit</button>
+                            <button type='submit' >Submit</button>
                           </form>
                         </>
                        );
-                        
+                    */
+
+                       // useReducer is another use-case management hook
+                       // useReducer used for complex state management and to structure use state
+
+                       const data = [{name:['kal ','kook ', 'kaleab']}]
+
+                       const [name, setName] = useState('');
+                        const [people, setPeople] = useState(data);
+                        const [modalEl,showModal] = useState(false);
+
+                        const handleSubmit = (e) => {
+                          e.preventDefault();
+
+                          if(name) {
+                            showModal(true);
+                            setPeople([...people, {id: new Date().getTime.toString(), fname:name}]);
+                            setName('');
+                          }
+                          else {
+                            showModal(true);
+                          }
+
+                        };
+
+                        const modal = () => {
+
+                          return (
+                            <>
+                            <modal>
+                              <h1>this is modal</h1>
+                            </modal>
+                            </>
+                          );
+                        };
+
+                        return(
+                          <>
+                          {modalEl && modal}
+                            <form style={{marginleft:'25%'}} onSubmit={handleSubmit}>
+                              <input type='text' value={name} onChange={(e)=>{e.target.value}} />
+                              <button type='submit'>Add Person</button>
+                            </form>
+                            {people.map((person)=>{
+                              return(
+                                <div key={person.id}>
+                                  <p>{person.name}</p>
+                                </div>
+                              );
+                            })};
+                          </>
+                        );
 
 };
   
