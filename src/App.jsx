@@ -2,7 +2,7 @@
   // useState used to keep values between renders while re-render trigered
   //  
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 //import {data} from '../data';
 
   function App() {
@@ -371,7 +371,7 @@ import React, {useState, useEffect} from 'react';
                     </article>
                   </>
                 );
-                */
+                
 
                // react-form with multiple-inputs and single change-handler
                //with a dynamic single input onChange handler
@@ -434,13 +434,37 @@ import React, {useState, useEffect} from 'react';
                             </form>
                           </>
                         );
+                        */
+
+                       // useRef is a lot like useState
+                       // it preserves a value
+                       // doesn't re-render or deosnt need a render dependency (useEffect dependency)
+                       // target the DOM node/element
+
+                       const refContainer = useRef(null);
+
+                       const handleSubmit = (e) => {
+                        e.preventDefault();
+                        console.log(refContainer.current.id);
+
+                       };
+
+                       return (
+                        <>
+                          <form style={{marginLeft:"25%"}} onSubmit={handleSubmit}>
+                            <input type='text' ref={refContainer} name='firstName' id='fname'/>
+                            <button type='submit'>Submit</button>
+                          </form>
+                        </>
+                       );
+                        
 
 };
   
 export default App;
+
 /*
 dont rest untill you made it
 today i didnt do anything but still head-up
 we gonr keep doing it for tommorow
-
  */
