@@ -471,9 +471,12 @@ import {data} from '../data';
                       // uses dispatch function to change states, and 
                       //reducer function recieves the old state and spit-out the new state
                       // when we dispacth the state we get the new state 
-
+                      
+                      // reducer have to always return state
                        const reducer = (state, action) => {
-
+                          if (action.target == setName) {
+                            return {...state, people: data, isModalOpen: true, modalContent: 'Dont give anyone a false validation unless you admit it'};
+                          }
                        };
 
                        const defaultState = {
@@ -485,17 +488,15 @@ import {data} from '../data';
                        const [state, dispatch] = useReducer(reducer, defaultState);
                        const [name, setName] = useState('');
 
-                        const handleSubmit   = (e) => {
+                        const handleSubmit = (e) => {
                           e.preventDefault();
 
                           if(name) {
+                            dispatch({target: setName});
                           }
                           else {
                           }
-
                         };
-
-                        
 
                         const modal = (modalContent) => {
 
@@ -519,6 +520,7 @@ import {data} from '../data';
                                   <h1>{person.name}</h1>
                                 </div>
                               );
+
                             })};
                           </>
                         );
