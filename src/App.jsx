@@ -2,8 +2,8 @@
   // useState used to keep values between renders while re-render trigered
   //  
 
-import React, {useState, useEffect, useRef} from 'react';
-//import {data} from '../data';
+import React, {useState, useEffect, useRef, useReducer} from 'react';
+import {data} from '../data';
 
   function App() {
 
@@ -467,18 +467,18 @@ import React, {useState, useEffect, useRef} from 'react';
                        // useReducer is another use-case management hook
                        // useReducer used for complex state management and to structure use state
 
-                       const data = [{name:['kal ','kook ', 'kaleab']}]
+                      
 
                        const [name, setName] = useState('');
-                        const [people, setPeople] = useState(data);
-                        const [modalEl,showModal] = useState(false);
+                       const [people, setPeople] = useState(data);
+                       const [modalEl, showModal] = useState(false);
 
                         const handleSubmit = (e) => {
                           e.preventDefault();
 
                           if(name) {
                             showModal(true);
-                            setPeople([...people, {id: new Date().getTime.toString(), fname:name}]);
+                            setPeople([...people, {id: new Date().getTime().toString(), name} ]);
                             setName('');
                           }
                           else {
@@ -487,28 +487,28 @@ import React, {useState, useEffect, useRef} from 'react';
 
                         };
 
+                        
+
                         const modal = () => {
 
                           return (
-                            <>
-                            <modal>
-                              <h1>this is modal</h1>
-                            </modal>
-                            </>
+                            <article>
+                              <h1>hello baby</h1>
+                            </article>
                           );
                         };
 
                         return(
                           <>
-                          {modalEl && modal}
+                          {modalEl && modal()} 
                             <form style={{marginleft:'25%'}} onSubmit={handleSubmit}>
-                              <input type='text' value={name} onChange={(e)=>{e.target.value}} />
+                            <input type='text' value={name} onChange={(e)=>{setName(e.target.value)}} />
                               <button type='submit'>Add Person</button>
                             </form>
                             {people.map((person)=>{
                               return(
                                 <div key={person.id}>
-                                  <p>{person.name}</p>
+                                  <h1>{person.name}</h1>
                                 </div>
                               );
                             })};
