@@ -467,45 +467,53 @@ import {data} from '../data';
                        // useReducer is another use-case management hook
                        // useReducer used for complex state management and to structure use state
 
-                      
+                      // useReducer helps to structure and manage states
+                      // uses dispatch function to change states, and 
+                      //reducer function recieves the old state and spit-out the new state
+                      // when we dispacth the state we get the new state 
 
+                       const reducer = (state, action) => {
+
+                       };
+
+                       const defaultState = {
+                          people: [],
+                          isModalOpen: false,
+                          modalContent: '',
+                       };
+
+                       const [state, dispatch] = useReducer(reducer, defaultState);
                        const [name, setName] = useState('');
-                       const [people, setPeople] = useState(data);
-                       const [modalEl, showModal] = useState(false);
 
-                        const handleSubmit = (e) => {
+                        const handleSubmit   = (e) => {
                           e.preventDefault();
 
                           if(name) {
-                            showModal(true);
-                            setPeople([...people, {id: new Date().getTime().toString(), name} ]);
-                            setName('');
                           }
                           else {
-                            showModal(true);
                           }
 
                         };
 
                         
 
-                        const modal = () => {
+                        const modal = (modalContent) => {
 
                           return (
-                            <article>
-                              <h1>hello baby</h1>
+                            <article style={{marginLeft:'25%'}}>
+                              <h1>{modalContent}</h1>
                             </article>
                           );
                         };
 
                         return(
                           <>
-                          {modalEl && modal()} 
+                          {state.isModalOpen && modal(state.modalContent)} 
                             <form style={{marginleft:'25%'}} onSubmit={handleSubmit}>
                             <input type='text' value={name} onChange={(e)=>{setName(e.target.value)}} />
                               <button type='submit'>Add Person</button>
                             </form>
-                            {people.map((person)=>{
+                            {state.people.map((person)=>{
                               return(
                                 <div key={person.id}>
                                   <h1>{person.name}</h1>
