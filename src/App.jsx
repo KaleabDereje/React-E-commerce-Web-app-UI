@@ -533,4 +533,5 @@ export default App;
 dont rest untill you made it
 today i didnt do anything but still head-up
 we gonr keep doing it for tommorow
+the rosd is high snd it's judt the beggining
  */
