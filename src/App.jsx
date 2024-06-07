@@ -474,8 +474,18 @@ import {data} from '../data';
                       
                       // reducer have to always return state
                        const reducer = (state, action) => {
-                          if (action.target == setName) {
-                            return {...state, people: data, isModalOpen: true, modalContent: 'Dont give anyone a false validation unless you admit it'};
+                          if (action.target == 'TITLE') {
+                            const newPeople = [...state.people, action.payload];
+
+                            return {
+                              ...state, 
+                              people: newPeople, 
+                              isModalOpen: true, 
+                              modalContent: 'Dont give anyone a false validation unless you admit it'
+                            };
+                          }
+                          else {
+                            throw new Error('Opps you did it!');
                           }
                        };
 
@@ -492,9 +502,12 @@ import {data} from '../data';
                           e.preventDefault();
 
                           if(name) {
-                            dispatch({target: setName});
+                            const listItem = {id: new Date().getTime().toString(), name};
+
+                            dispatch({target: 'TITLE', payload: listItem});
                           }
                           else {
+                            dispatch({target: 'NONE'})
                           }
                         };
 
@@ -515,7 +528,7 @@ import {data} from '../data';
                               <button type='submit'>Add Person</button>
                             </form>
                             {state.people.map((person)=>{
-                              return(
+                              return (
                                 <div key={person.id}>
                                   <h1>{person.name}</h1>
                                 </div>
@@ -525,7 +538,7 @@ import {data} from '../data';
                           </>
                         );
 
-};
+}
   
 export default App;
 
