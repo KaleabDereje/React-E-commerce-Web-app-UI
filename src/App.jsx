@@ -4,6 +4,7 @@
 
 import React, {useState, useEffect, useRef, useReducer} from 'react';
 import {data} from '../data';
+import {Modal} from '../modal';
 
   function App() {
 
@@ -484,9 +485,21 @@ import {data} from '../data';
                               modalContent: 'Dont give anyone a false validation unless you admit it'
                             };
                           }
-                          else {
-                            throw new Error('Opps you did it!');
+                          if(action.target == 'NONE') {
+                            return {
+                              ...state,
+                              isModalOpen: true,
+                              modalContent: 'please fill the input',
+                            }
                           }
+                          if (action.target == 'CLOSE_MODAL') {
+                            return {
+                              ...state,
+                              isModalOpen: false,
+                              modalContent: 'please fill the input',
+                            }
+                          }
+                          throw new Error('no matching action type');
                        };
 
                        const defaultState = {
@@ -505,28 +518,24 @@ import {data} from '../data';
                             const listItem = {id: new Date().getTime().toString(), name};
 
                             dispatch({target: 'TITLE', payload: listItem});
+                            setName('');
                           }
                           else {
                             dispatch({target: 'NONE'})
                           }
                         };
 
-                        const modal = (modalContent) => {
-
-                          return (
-                            <article style={{marginLeft:'25%'}}>
-                              <h1>{modalContent}</h1>
-                            </article>
-                          );
+                        const closeModal = () => {
+                          dispatch({target: 'CLOSE_MODAL'});
                         };
 
                         return(
                           <>
-                          {state.isModalOpen && modal(state.modalContent)} 
+                          {state.isModalOpen && <Modal modalContent={state.modalContent} closeModal={closeModal} /> } 
                             <form style={{marginleft:'25%'}} onSubmit={handleSubmit}>
                             <input type='text' value={name} onChange={(e)=>{setName(e.target.value)}} />
                               <button type='submit'>Add Person</button>
-                            </form>
+                            </form>      
                             {state.people.map((person)=>{
                               return (
                                 <div key={person.id}>
@@ -539,7 +548,7 @@ import {data} from '../data';
                         );
 
 }
-  
+
 export default App;
 
 /*
