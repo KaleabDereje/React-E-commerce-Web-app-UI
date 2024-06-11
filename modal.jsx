@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-export default function Modal(modalContent, closeModal) {
+
+ function Modal(modalContent, closeModal) {
     useEffect(()=>{
         setTimeout(()=>{
             closeModal;
@@ -10,4 +11,6 @@ export default function Modal(modalContent, closeModal) {
           <h1>{modalContent}</h1>
         </article>
       );
-}
+}; 
+
+export default Modal;
