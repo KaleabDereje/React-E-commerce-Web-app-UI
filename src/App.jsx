@@ -575,4 +575,12 @@ the road is high and it's judt the beggining
 you heve set urself long enough little time left you'll be out there as you are 
 be set and rady
  
+
+dont rest untill you made it
+today i didnt do anything but still head-up
+we gonr keep doing it for tommorow
+the road is high and it's judt the beggining
+you heve set urself long enough little time left you'll be out there as you are 
+be set and rady
+ 
 */
