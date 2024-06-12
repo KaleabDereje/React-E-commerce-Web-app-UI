@@ -583,5 +583,6 @@ the road is high and it's judt the beggining
 you heve set urself long enough little time left you'll be out there as you are 
 be set and ready
 today i didnt do anything
+today i spoke a friend about the road am gone take and nourishes myself that am gone be there on the station in the middle of the road
  
 */
