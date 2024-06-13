@@ -463,7 +463,6 @@ import {Modal} from '../modal';
                           </form>
                         </>
                        );
-                    */
 
                        // useReducer is another use-case management hook
                        // useReducer used for complex state management and to structure use state
@@ -546,6 +545,14 @@ import {Modal} from '../modal';
                             })};
                           </>
                         );
+                      */
+                     
+                        //prop drilling
+                        //used while using a biger component and passing a state value using 
+                        //the big component and all the way through the bottom component tree
+                        //useContext hook can fix this
+                        // and using Context API too~
+
 
 }
 
