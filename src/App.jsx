@@ -592,4 +592,5 @@ be set and ready
 today i didnt do anything
 today i spoke a friend about the road am gone take and nourishes myself that am gone be there on the station in the middle of the road
  for the time ahead put yourself and your goal first dont fool yourself and dont fall for promises
+ today i did smt but not important and am on rage can feel it even on ma voice
 */
