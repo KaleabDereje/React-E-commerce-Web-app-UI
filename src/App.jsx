@@ -4,7 +4,7 @@
 
 import React, {useState, useEffect, useRef, useReducer} from 'react';
 import {data} from '../data';
-import {Modal} from '../modal';
+
 
   function App() {
 
@@ -553,9 +553,41 @@ import {Modal} from '../modal';
                         //useContext hook can fix this
                         // and using Context API too~
 
+                        const [people, setPeople] = useState(data);
 
-}
+                        const removeItem = (id) => {
+                          setPeople((people) => {
+                            return people.filter((person)=>{person.id !== id});
+                          });
+                        };
 
+                         return (
+                          <>
+                            <h3>Prop Drilling</h3>
+                            <List people={people}  removeItem={removeItem} />
+                          </>
+                         );
+                      };
+
+                        const List = ({people, removeItem}) => {
+                          return (
+                          <section>
+                          {people.map((person) => {
+                            return <SinglePerson key={person.id} {...person} removeItem={removeItem} />;
+                          })}
+                          </section>
+                          );
+                        };
+
+                        const SinglePerson = ({id, name, removeItem}) => {
+                          return (
+                            <div key = {id}>
+                              <h3>{name}</h3>
+                              <button onClick={()=>{removeItem(id)}} >Remove</button>
+                            </div>
+                          );
+                        };
+                           
 export default App;
 
 /*
@@ -591,6 +623,6 @@ you heve set urself long enough little time left you'll be out there as you are
 be set and ready
 today i didnt do anything
 today i spoke a friend about the road am gone take and nourishes myself that am gone be there on the station in the middle of the road
- for the time ahead put yourself and your goal first dont fool yourself and dont fall for promises
- today i did smt but not important and am on rage can feel it even on ma voice
+for the time ahead put yourself and your goal first dont fool yourself and dont fall for promises
+today i did smt but not important and am on rage can feel it even on ma voice
 */
