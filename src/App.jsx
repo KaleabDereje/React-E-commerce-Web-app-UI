@@ -545,7 +545,7 @@ import {data} from '../data';
                             })};
                           </>
                         );
-                      */
+                      
                      
                         //prop drilling
                         //used while using a biger component and passing a state value using 
@@ -583,10 +583,13 @@ import {data} from '../data';
                           return (
                             <div key = {id}>
                               <h3>{name}</h3>
-                              <button onClick={()=>{removeItem(id)}} >Remove</button>
+                              <button onClick={()=>removeItem(id)} >Remove</button>
                             </div>
                           );
                         };
+                      */
+
+         };                 
                            
 export default App;
 
