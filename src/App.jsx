@@ -588,6 +588,11 @@ import {data} from '../data';
                           );
                         };
                       */
+                     //prop drilling
+                        //used while using a biger component and passing a state value using 
+                        //the big component and all the way through the bottom component tree
+                        //useContext hook can fix this
+                        // and using Context API too~
 
          };                 
                            
