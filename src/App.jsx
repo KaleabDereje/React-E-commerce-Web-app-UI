@@ -6,6 +6,10 @@ import React, {useState, useEffect, useRef, useReducer, useContext} from 'react'
 import {data} from '../data';
 
 
+const PersonContext = React.createContext();
+//has two components : provider, consumer(during prop drilling i used consumer) 
+//personContext Wraps-up all components or application
+
   function App() {
 
     //const title = 'Advanced React useState Hook';
@@ -595,11 +599,7 @@ import {data} from '../data';
                         // and using Context API too~
                         //implement useContext hook
 
-                        //has two components : provider, consumer(during prop drilling i used consumer) 
-                        //personContext Wraps-up all components or application
 
-                        
-                        const PersonContext = React.createContext();
                         const [people, setPeople] = useState(data);
 
                         const removeItem = (id) => {
@@ -628,7 +628,7 @@ import {data} from '../data';
                             <>
                             {mainData.people.map((person)=>{
                                 return (
-                                  <SetPerson key = {person.id} {...person} />
+                                  <SetPerson  id={person.id}  {...person} />
                                 );
                             })}
                             </>
@@ -639,7 +639,7 @@ import {data} from '../data';
                             const {removeItem} = useContext(PersonContext)
 
                             return (
-                              <div>
+                              <div key={id}>
                                 <h1>{name}</h1>
                                 <button onClick={()=>removeItem(id)}>Delete</button>
                               </div>   
