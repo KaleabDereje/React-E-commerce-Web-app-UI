@@ -594,7 +594,50 @@ import {data} from '../data';
                         //useContext hook can fix this
                         // and using Context API too~
 
-         };                 
+                        const [people, setPeople] = useState(data);
+
+                        const removeItem = (id) => {
+                          setPeople((people)=>{
+                            return(
+                              people.filter((person)=>{
+                                person.id !== id;
+                              })
+                            );
+                          });
+                        }
+
+                        return (
+                          <>
+                              <h4>Prop Drilling</h4>
+                              <List people={people}  removeItem={removeItem}/>
+                          </>
+                        );
+                      };                 
+
+                        const List = ({people, removeItem}) => {
+                          return (
+                            <>
+                            {people.map((person)=>{
+                                return (
+                                  <SetPerson key = {person.id} {...person}  removeItem={removeItem}/>
+                                );
+                            })}
+                            </>
+                          );
+                        }
+
+                          const SetPerson = ({id, name, removeItem}) => {
+                            return (
+                              <div>
+                                <h1>{name}</h1>
+                                <button onClick={()=>removeItem(id)}>Delete</button>
+                              </div>
+                              
+                            );
+                          }
+
+
+
                            
 export default App;
 
