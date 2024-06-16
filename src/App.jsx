@@ -2,7 +2,7 @@
   // useState used to keep values between renders while re-render trigered
   //  
 
-import React, {useState, useEffect, useRef, useReducer} from 'react';
+import React, {useState, useEffect, useRef, useReducer, useContext} from 'react';
 import {data} from '../data';
 
 
@@ -593,7 +593,13 @@ import {data} from '../data';
                         //the big component and all the way through the bottom component tree
                         //useContext hook can fix this
                         // and using Context API too~
+                        //implement useContext hook
 
+                        //has two components : provider, consumer(during prop drilling i used consumer) 
+                        //personContext Wraps-up all components or application
+
+                        
+                        const PersonContext = React.createContext();
                         const [people, setPeople] = useState(data);
 
                         const removeItem = (id) => {
@@ -606,37 +612,39 @@ import {data} from '../data';
                           });
                         }
 
+                        //all components or the whole app is wraps-up in personContext.Provider
+
                         return (
-                          <>
-                              <h4>Prop Drilling</h4>
-                              <List people={people}  removeItem={removeItem}/>
-                          </>
+                          <PersonContext.Provider value={{removeItem, people}}>
+                              <h4>useContext Hook</h4>
+                              <List />
+                          </PersonContext.Provider>
                         );
                       };                 
 
-                        const List = ({people, removeItem}) => {
+                        const List = () => {
+                          const mainData = useContext(PersonContext);
                           return (
                             <>
-                            {people.map((person)=>{
+                            {mainData.people.map((person)=>{
                                 return (
-                                  <SetPerson key = {person.id} {...person}  removeItem={removeItem}/>
+                                  <SetPerson key = {person.id} {...person} />
                                 );
                             })}
                             </>
                           );
                         }
 
-                          const SetPerson = ({id, name, removeItem}) => {
+                          const SetPerson = ({id, name}) => { 
+                            const {removeItem} = useContext(PersonContext)
+
                             return (
                               <div>
                                 <h1>{name}</h1>
                                 <button onClick={()=>removeItem(id)}>Delete</button>
-                              </div>
-                              
+                              </div>   
                             );
                           }
-
-
 
                            
 export default App;
