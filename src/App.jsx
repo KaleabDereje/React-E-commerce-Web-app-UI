@@ -3,12 +3,19 @@
   //  
 
 import React, {useState, useEffect, useRef, useReducer, useContext} from 'react';
+
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+import Home from '../home';
+import People from '../people';
+import About from '../about';
 import {data} from '../data';
 
 
-const PersonContext = React.createContext();
-//has two components : provider, consumer(during prop drilling i used consumer) 
-//personContext Wraps-up all components or application
+
+// const PersonContext = React.createContext();
+// has two components : provider, consumer(during prop drilling i used consumer) 
+// personContext Wraps-up all components or application
 
   function App() {
 
@@ -591,7 +598,7 @@ const PersonContext = React.createContext();
                             </div>
                           );
                         };
-                      */
+                      
                      //prop drilling
                         //used while using a biger component and passing a state value using 
                         //the big component and all the way through the bottom component tree
@@ -620,7 +627,7 @@ const PersonContext = React.createContext();
                               <List />
                           </PersonContext.Provider>
                         );
-                      };                 
+                    
 
                         const List = () => {
                           const mainData = useContext(PersonContext);
@@ -645,8 +652,21 @@ const PersonContext = React.createContext();
                               </div>   
                             );
                           }
+                          */
 
-                           
+                          return (
+                            <Router>
+                              <Routes>
+                                <Route path='/' element={<Home />} />
+                                <Route path='/people' element={ <People /> } />
+                                <Route path='/about' element={ <About /> } />
+                                </Routes> 
+                            </Router>
+                          );
+
+        };
+
+        
 export default App;
 
 /*
