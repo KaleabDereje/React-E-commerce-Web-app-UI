@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from '../home';
 import People from '../people';
 import About from '../about';
+import Memo from '../memo';
 import {data} from '../data';
 
 
@@ -656,10 +657,11 @@ import {data} from '../data';
 
                           return (
                             <Router>
+                              < Memo />
                               <Routes>
-                                <Route path='/' element={<Home />} />
-                                <Route path='/people' element={ <People /> } />
-                                <Route path='/about' element={ <About /> } />
+                                <Route exact path='/' element={<Home />} />
+                                <Route exact path='/people' element={<People />} />
+                                <Route exact path='*' element={<About />} />
                                 </Routes> 
                             </Router>
                           );
