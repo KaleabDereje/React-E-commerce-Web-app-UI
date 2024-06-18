@@ -10,6 +10,7 @@ import Home from '../home';
 import People from '../people';
 import About from '../about';
 import Memo from '../memo';
+import Person from '../person';
 import {data} from '../data';
 
 
@@ -661,6 +662,7 @@ import {data} from '../data';
                               <Routes>
                                 <Route exact path='/' element={<Home />} />
                                 <Route exact path='/people' element={<People />} />
+                                <Route exact path='/person/:id' element={<Person />} />
                                 <Route exact path='*' element={<About />} />
                                 </Routes> 
                             </Router>
