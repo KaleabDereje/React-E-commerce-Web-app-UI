@@ -652,6 +652,45 @@ import {data} from '../data';
                                 <h1>{name}</h1>
                                 <button onClick={()=>removeItem(id)}>Delete</button>
                               </div>   
+
+
+
+                              setTimeout(() => console.log('hello world'), 500 )  //setTimeout() is asynchroneous function
+
+                              //Promises
+                              let fifteen = Promise.resolve(15);
+                              fifteen.value((value) => console.log(`Get${value}`)); // Get 15
+
+                              //Promise implementing with constructor
+                                const textFile = (fileName) => {
+
+                                  return new Promise( resolve => {
+                                    readTextFile(fileName, text => resolve(text) )
+                                  } )
+                                }
+
+                                textFile('plans.txt').then(console.log());
+
+                                //implementing chain of promises (then is a method to register a function and by itself it returns a promisse)
+                                //cahin of then calls
+                                let randomFile = (listFile) {
+
+                                    return textFile(listFile)
+                                           .then(content => content.trim().split('\n'))
+                                           .then(ls => ls[Math.floor(Math.Random() * ls.length)])
+                                           .then(fileName => textFile(fileNmae))
+
+                                }  //only the last then returns a promise which makes the whole program asynchronous at the end
+
+                                let jsonFile = (fileName) => {
+
+                                    return textFile(fileName).then(JSON.parse);
+                                }
+
+                                jsonFile('package.json').then(console.log);
+
+
+
                             );
                           }
                           */
@@ -668,7 +707,7 @@ import {data} from '../data';
                             </Router>
                           );
 
-        };
+        }; 
 
         
 export default App;
