@@ -689,6 +689,8 @@ import {data} from '../data';
 
                                 jsonFile('package.json').then(console.log);
 
+                                //failure
+
 
 
                             );
