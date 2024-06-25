@@ -689,8 +689,16 @@ import {data} from '../data';
 
                                 jsonFile('package.json').then(console.log);
 
-                                //failure
+                                //failure 
+                                //using asynchronous programming, errors may not repotred properly 
+                                //use a handler for the funcion in the callback first argument
 
+                                SomeAsyncFunction((error, value) => {
+                                    if (error) handleError(error);
+                                    else processValue(value);
+                                }) ;
+
+                                
 
 
                             );
