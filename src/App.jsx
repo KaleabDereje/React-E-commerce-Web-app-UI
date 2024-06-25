@@ -698,10 +698,37 @@ import {data} from '../data';
                                     else processValue(value);
                                 }) ;
 
-                                
+                                //passing a reject handler to the promise consetructor as a second argument
+
+                                const textFile = (fileName) => {
+
+                                  return new Promise((resove, reject) => {
+                                    readTextFile(fileName, (text, error) => {
+                                      if (error) reject(error);
+                                      else resolve(text);
+                                    })
+                                  })
+                                }
+
+                                //catch method rejisters rejection handlers or function just like then(register resolve va;ue handlers)
+
+                                new Promise((_, rejection) => rejection(new Error('opps fail')))
+                                    .then(value => console.log('it's resolved value only'))
+                                    .catch(reject => {
+                                        console.log('caught failure' + reject);
+                                        return 'resolves reject value';
+                                    })
+                                      .then(value => console.log('handler 3:' + value));
+                                      
+                                      //caught failure Error: opps fail
+                                      //handler 3: resolves reject value
+                                      // /the first then handler doesnt called and the last then method recieves the caught handler value
+                                    
 
 
-                            );
+
+                                    
+                                    );
                           }
                           */
 
