@@ -729,7 +729,8 @@ import {data} from '../data';
                                     // generator function are the same as the asyn function but dont use promises
                                     // the generator function and async function freze at part of the code till the promise resolved and returned
                                     // event loop helps to not make the program idle while the callbacks and the async function main script run to complete
-                                    //  evet loop 
+                                    //  event loop runs qued events and the proggramm still run and waits the other scripts
+                                    // js generator functions represent by function* and it returns iterable
                                     
 
 
