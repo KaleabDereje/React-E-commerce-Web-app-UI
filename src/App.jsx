@@ -723,6 +723,13 @@ import {data} from '../data';
                                       //caught failure Error: opps fail
                                       //handler 3: resolves reject value
                                       // /the first then handler doesnt called and the last then method recieves the caught handler value
+
+                                    // we can easily make asynchronous function putting async literal in front of the function
+                                    // and use await key word in the function to make it a promise 
+                                    // generator function are the same as the asyn function but dont use promises
+                                    // the generator function and async function freze at part of the code till the promise resolved and returned
+                                    // event loop helps to not make the program idle while the callbacks and the async function main script run to complete
+                                    //  evet loop 
                                     
 
 
