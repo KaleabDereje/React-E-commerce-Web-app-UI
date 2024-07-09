@@ -65,8 +65,63 @@ function App () {
             fs.writeFile('demoFile.html', 'overWriten content', function(err){
                 if (err) throw err;
                 console.log(overWriten file);
-            })
-        })
+            });
+        }).listen(8080);
+
+        //fs module uses fs.appendFile() and fs.writeFile() methods to update files
+
+        //fs module uses fs.unlink() method to delete a file in the server
+
+        http.createServer(functio(res,req){
+            fs.unlink('demoFile.html', function(err){
+                if (err) throw err;
+                console.log("file removed");
+            });
+        }).listen(8080);
+
+        //fs module uses fs.rename() method module to rename  a file in the serve
+
+        http.createServer(function(res, req){
+            fs.rename('demofile.html', 'newFiel.html', function(err){
+                if (err) throw err;
+                console.log('renamed file');
+            });
+        }).listen(8080);
+
+        //fs module uses fs.upload() method to upload file into the server
+
+        //split a web address into a t=readable parts:
+         
+        var url = require('url');
+        var adress = 'http://localhost:8080/default.htm?year=2017&month=february';
+        var adr = url.parse(address, true);
+
+        console.log(adr.host);
+        console.log(adr.pathname);
+        console.log(adr.search);
+         var data = q.query;
+         console.log(data.month);
+
+         var http = require('http');
+         var url = require('url');
+         var fs = require('fs');
+
+         http.createServer(function(res, req){
+            var adr = url.parse(req.url, true);
+            var fileName = "." + adr.pathname;
+
+            fs.readFile(fileName, function(err, data){
+                if (err) {
+                    res.writeHead(404, {"content-Type": "text/html"});
+                    res.end("404 not found");
+                }
+
+                res.writeHead(200, {"content-Type": "text/html"});
+                res.write(data);
+                return res.end();
+            });
+         }).listen(8080);
+
 
     */
 
