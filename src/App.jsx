@@ -122,6 +122,11 @@ function App () {
             });
          }).listen(8080);
 
+         //node.js 'events' module to add ahd handle event objects
+         
+         var events = require('ebvents');
+         // every event is instance of EventEmiiter
+
 
     */
 
