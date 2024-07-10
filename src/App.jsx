@@ -157,6 +157,28 @@ function App () {
             });
          });
 
+         //join mongodb
+         var mongodb = require('mongodb').MongoClient;
+         var url = 'mongodb://localhost:27017';
+
+         mongodb.connect(url, function(err, db){
+            if(err) throw err;
+            var dbo = db.db('mydb');
+
+            dbo.collection('order').aggregate([
+                {$lookup: {
+                    from: 'products',
+                    localField: 'product_id',
+                    forignField: '_id',
+                    as: 'orderdetails'
+                }}
+            ]).toArray(function(err, result){
+                if(err) throw err;
+                console.log(JSON.stringify(result))
+                db.close();
+            });
+         });
+
 
     */
 
