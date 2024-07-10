@@ -141,6 +141,22 @@ function App () {
          //fire event
          newEvent.emit('scream');
 
+         //node mongo db connection using mongo module
+
+         var mongodb = require('mogodb').MongoClient;
+         var url = 'mongodb://localhost:27017/';
+
+         mongodb.connect(url, function(err, db){
+            if (err) throw err;
+            var dbo = db.db('mydb');
+            var query = {address: /S/}
+            dbo.collection('customers').findMany(query).limit(5).toArray(function(err, result){
+                if(err) throw err;
+                console.log(result)
+                db.close();
+            });
+         });
+
 
     */
 
