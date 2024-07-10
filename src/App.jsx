@@ -125,7 +125,21 @@ function App () {
          //node.js 'events' module to add ahd handle event objects
          
          var events = require('ebvents');
-         // every event is instance of EventEmiiter
+         // every event is instance of EventEmiiter object
+
+         var events = require("events");
+         var newEvent = new EventEmitter();
+
+         //add event handler
+         var eventHandler = function() {
+            console.log('scream');
+         };
+
+         //add event handler to the event
+         newEvent.on('scream', eventHandler);
+         
+         //fire event
+         newEvent.emit('scream');
 
 
     */
