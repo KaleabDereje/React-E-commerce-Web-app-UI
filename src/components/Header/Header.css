@@ -1,9 +1,10 @@
 .header{
-    height: 34vw;
+    height: 33.36vw;
     margin: 30px auto;
     background: url('/public/header_img.png');
     background-size: contain;
     position: relative;
+    
 }
 
 .header-content{
