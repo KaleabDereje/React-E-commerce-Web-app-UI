@@ -975,4 +975,7 @@ today i did smt but not important and am on rage can feel it even on ma voice
 
 felt the wage but still trying to go straight
 telling ma self it's goin to as planned
+
+the only choice is to fight it back with the new method
+only doing and trying the best is the wayout
 */
