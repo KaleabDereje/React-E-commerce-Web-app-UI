@@ -4,7 +4,7 @@ import {menu_list} from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
 
 const ExploreMenu = () => {
-    const [category, setCategory] = useContext(StoreContext);
+    const {category, setCategory} = useContext(StoreContext);
     return(
         <div className="explore-menu" id="explore-menu">
             <h1>Explore Menu</h1>
