@@ -3,16 +3,20 @@ import './Home.css';
 import Header from '../../components/Header/Header';
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
+import StoreContextProvider from '../../context/StoreContext';
 
 const Home = () => {
 
-    const [catagory, setCatagory] = useState('All');
+   // const [category, setCategory] = useState("All");
 
     return (
         <div>
             <Header/>
-            <ExploreMenu catagory={catagory} setCatagory={setCatagory}/>
-            <FoodDisplay />
+            <StoreContextProvider>
+            <ExploreMenu />
+            <FoodDisplay />    
+            </StoreContextProvider>
+            
         </div>
     );
 }

@@ -8,6 +8,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
 
+    const [category, setCategory] = useState("All");
     const [cartItems, setCartItems] = useState([]);
 /*
     const addToCart = (itemId) => {
@@ -47,12 +48,10 @@ const addToCart = (itemId) => {
   };
 
 
-    useEffect(()=>{
-        console.log(cartItems);
-    }, [cartItems])
-
     const contextValue = {
         food_list,
+        category,
+        setCategory,
         cartItems,
         setCartItems,
         addToCart,
