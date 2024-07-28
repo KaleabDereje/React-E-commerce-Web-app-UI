@@ -981,4 +981,6 @@ only doing and trying the best is the wayout
 
 still on the plan but i tell you the moment you chose your dream over the little skip mechanisms you meet the real ME
 its gone be hide and seek till then
+
+head up and see the sky its limitles unlike your roof
 */
