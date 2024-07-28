@@ -978,4 +978,7 @@ telling ma self it's goin to as planned
 
 the only choice is to fight it back with the new method
 only doing and trying the best is the wayout
+
+still on the plan but i tell you the moment you chose your dream over the little skip mechanisms you meet the real ME
+its gone be hide and seek till then
 */
