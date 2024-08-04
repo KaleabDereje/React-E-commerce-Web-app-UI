@@ -7,7 +7,7 @@ const LoginPopup = ({setShowLogin}) => {
     const [currState, setCurrState] = useState('Login');
 
     return (
-        <div className="login-pop">
+        <div className="login-popup">
             <form action="" className="login-popup-container">
                 <div className="login-popup-title">
                     <h2>{currState}</h2>
@@ -24,7 +24,7 @@ const LoginPopup = ({setShowLogin}) => {
                     <p>By continuing, I agree to the terms of use & privay policy.</p>
                 </div>
                 {currState==="Login"
-                ?<p>Create a new account? <span onClick={()=>setCurrState("Sign Up")}>Click here</span></p>
+                ?<p>Create a new account? <span onClick={()=>setCurrState("Sign Up")}>Click here</span> </p>
                 :<p>Already have an account? <span onClick={()=>setCurrState("Login")}>Login here</span></p>   
                 }
                                 
