@@ -16,7 +16,7 @@ import FoodItem from '../FoodItem/FoodItem';
                 {filteredFoodList.map((item, index)=>{
                     {console.log(category)}
                         return (
-                        <FoodItem key={index} id={item.id} name={item.name} description={item.description} price={item.price} image={item.image} /> 
+                        <FoodItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.image} /> 
                         )                   
                 })}       
             </div>

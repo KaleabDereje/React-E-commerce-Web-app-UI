@@ -10,8 +10,9 @@ const StoreContextProvider = (props) => {
 
     const [category, setCategory] = useState("All");
     
-/*
-    const [cartItems, setCartItems] = useState([]);
+
+    const [cartItems, setCartItems] = useState({});
+
     const addToCart = (itemId) => {
         if (!cartItems[itemId]) {
             setCartItems((prev)=>({...prev,[itemId]:1}))
@@ -24,8 +25,8 @@ const StoreContextProvider = (props) => {
     const removeFromCart = (itemId) => {
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
     }
- 
 
+/*
 const addToCart = (itemId) => {
     const existingItem = cartItems.find((item) => item.id === itemId);
     if (existingItem) {
@@ -37,6 +38,7 @@ const addToCart = (itemId) => {
     }
   };
 
+
   const removeFromCart = (itemId) => {
     const existingItem = cartItems.find((item) => item.id === itemId);
     if (existingItem && existingItem.quantity > 1) {
@@ -47,12 +49,16 @@ const addToCart = (itemId) => {
       setCartItems(cartItems.filter((item) => item.id !== itemId));
     }
   };
-*/
 
+*/
     const contextValue = {
         food_list,
         category,
         setCategory,
+        cartItems, 
+        setCartItems,
+        addToCart,
+        removeFromCart,
     }
 
     return (
