@@ -14,7 +14,6 @@ import FoodItem from '../FoodItem/FoodItem';
             <h2>Top Dishes Near You</h2>
             <div className="food-display-list">
                 {filteredFoodList.map((item, index)=>{
-                    {console.log(category)}
                         return (
                         <FoodItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.image} /> 
                         )                   

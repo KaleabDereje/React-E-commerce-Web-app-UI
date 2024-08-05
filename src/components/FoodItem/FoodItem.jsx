@@ -8,11 +8,6 @@ import { useEffect } from 'react';
 const FoodItem = ({ id, name, price, description, image }) => {
 
   const {cartItems, setCartItems, food_list, addToCart, removeFromCart} = useContext(StoreContext);
-
-  useEffect(()=>{
-    console.log(cartItems);
-  }, [cartItems])  
-
   return (
     <div className="food-item">
       <div className="food-item-img-container">
