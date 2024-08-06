@@ -3,20 +3,20 @@ import "./FoodDisplay.css";
 import {StoreContext} from '../../context/StoreContext';
 import FoodItem from '../FoodItem/FoodItem';
 
-        const FoodDisplay = () => {
+        const FoodDisplay = ({category}) => {
 
-    const {food_list, category} = useContext(StoreContext);
+    const {food_list} = useContext(StoreContext);
 
-    const filteredFoodList = food_list.filter(item => category === "All" || item.category === category);
+   // const filteredFoodList = food_list.filter(item => category === "All" || item.category === category);
 
     return (
         <div className="food-display" id="food-display">
             <h2>Top Dishes Near You</h2>
             <div className="food-display-list">
-                {filteredFoodList.map((item, index)=>{
-                        return (
-                        <FoodItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.image} /> 
-                        )                   
+                {food_list.map((item, index)=>{
+                    if(category==="All" || category===item.category) {
+                        return <FoodItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.image} /> 
+                    }            
                 })}       
             </div>
         </div>

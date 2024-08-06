@@ -8,14 +8,14 @@ import AppDownload from '../../components/AppDownload/AppDownload';
 
 const Home = () => {
 
-   // const [category, setCategory] = useState("All");
+    const [category, setCategory] = useState("All");
 
     return (
         <div>
             <Header/>
             <StoreContextProvider>
-            <ExploreMenu />
-            <FoodDisplay />   
+            <ExploreMenu category={category} setCategory={setCategory}/>
+            <FoodDisplay  category={category} setCategory={setCategory} />   
             <AppDownload /> 
             </StoreContextProvider>
             
