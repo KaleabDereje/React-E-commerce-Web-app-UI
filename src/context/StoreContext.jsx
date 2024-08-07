@@ -51,6 +51,7 @@ const addToCart = (itemId) => {
   };
 
 */
+
     const contextValue = {
         food_list,
         cartItems, 
