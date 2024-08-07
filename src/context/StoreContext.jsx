@@ -28,25 +28,25 @@ const StoreContextProvider = (props) => {
 
 /*
 const addToCart = (itemId) => {
-    const existingItem = cartItems.find((item) => item.id === itemId);
+    const existingItem = cartItems.find((item) => item._id === itemId);
     if (existingItem) {
       setCartItems(cartItems.map((item) =>
-        item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
+        item._id === itemId ? { ...item, quantity: item.quantity + 1 } : item
       ));
     } else {
-      setCartItems([...cartItems, { id: itemId, quantity: 1 }]);
+      setCartItems([...cartItems, { _id: itemId, quantity: 1 }]);
     }
   };
 
 
   const removeFromCart = (itemId) => {
-    const existingItem = cartItems.find((item) => item.id === itemId);
+    const existingItem = cartItems.find((item) => item._id === itemId);
     if (existingItem && existingItem.quantity > 1) {
       setCartItems(cartItems.map((item) =>
-        item.id === itemId ? { ...item, quantity: item.quantity - 1 } : item
+        item._id === itemId ? { ...item, quantity: item.quantity - 1 } : item
       ));
     } else {
-      setCartItems(cartItems.filter((item) => item.id !== itemId));
+      setCartItems(cartItems.filter((item) => item._id !== itemId));
     }
   };
 
