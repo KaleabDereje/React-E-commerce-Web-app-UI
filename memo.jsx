@@ -938,49 +938,5 @@ import {data} from '../data';
 export default App;
 
 /*
-dont rest untill you made it
-today i didnt do anything but still head-up
-we gonr keep doing it for tommorow
-the road is high and it's judt the beggining
-you heve set urself long enough little time left you'll be out there as you are 
-be set and rady
- 
-
-dont rest untill you made it
-today i didnt do anything but still head-up
-we gonr keep doing it for tommorow
-the road is high and it's judt the beggining
-you heve set urself long enough little time left you'll be out there as you are 
-be set and rady
- 
-
-dont rest untill you made it
-today i didnt do anything but still head-up
-we gonr keep doing it for tommorow
-the road is high and it's judt the beggining
-you heve set urself long enough little time left you'll be out there as you are 
-be set and rady
- 
-
-dont rest untill you made it
-today i didnt do anything but still head-up
-we gonr keep doing it for tommorow
-the road is high and it's judt the beggining
-you heve set urself long enough little time left you'll be out there as you are 
-be set and ready
-today i didnt do anything
-today i spoke a friend about the road am gone take and nourishes myself that am gone be there on the station in the middle of the road
-for the time ahead put yourself and your goal first dont fool yourself and dont fall for promises
-today i did smt but not important and am on rage can feel it even on ma voice
-
-felt the wage but still trying to go straight
-telling ma self it's goin to as planned
-
-the only choice is to fight it back with the new method
-only doing and trying the best is the wayout
-
-still on the plan but i tell you the moment you chose your dream over the little skip mechanisms you meet the real ME
-its gone be hide and seek till then
-
-head up and see the sky its limitles unlike your roof
+##
 */
