@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer" id="footer">
             <div className="footer-content">
                 <div className="footer-content-left">
-                    <img src={assets.logo} alt="" />
+                    <img src="public/logo_no_background.svg" alt="" />
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 <div className="footer-social-icons">
                     <img src={assets.facebook_icon} alt="" />
